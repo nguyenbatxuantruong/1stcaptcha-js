@@ -15,10 +15,10 @@ class OneStCaptchaClient {
       if (data["Code"] === 0) {
         return data["Balance"]
       } else {
-        throw new Error(`${data}`);
+        throw new Error(`${data["Message"]}`);
       }
     } else {
-      throw new Error(`${await response.json()}`);
+      throw new Error(`${data["Message"] || JSON.stringify(data)}`);
     }
   }
 
@@ -54,7 +54,7 @@ class OneStCaptchaClient {
           throw new Error(`${data["Error"]}`);
         }
       } else {
-        throw new Error(`${await response.json()}`);
+        throw new Error(`${data["Message"] || JSON.stringify(data)}`);
       }
     }
   }
@@ -81,7 +81,7 @@ class OneStCaptchaClient {
           }
         }
       }
-      return { "code": 1, "messeage": data }
+      return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
     } catch (e) {
       return { "code": 1, "messeage": e.toString() }
     }
@@ -108,7 +108,7 @@ class OneStCaptchaClient {
           }
         }
       }
-      return { "code": 1, "messeage": data }
+      return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
     } catch (e) {
       return { "code": 1, "messeage": e.toString() }
     }
@@ -138,7 +138,7 @@ class OneStCaptchaClient {
           }
         }
       }
-      return { "code": 1, "messeage": data }
+      return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
     } catch (e) {
       return { "code": 1, "messeage": e.toString() }
     }
@@ -167,7 +167,7 @@ class OneStCaptchaClient {
           }
         }
       }
-      return { "code": 1, "messeage": data }
+      return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
     } catch (e) {
       return { "code": 1, "messeage": e.toString() }
     }
@@ -193,7 +193,7 @@ class OneStCaptchaClient {
           }
         }
       }
-      return { "code": 1, "messeage": data }
+      return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
     } catch (e) {
       return { "code": 1, "messeage": e.toString() }
     }
@@ -221,7 +221,7 @@ class OneStCaptchaClient {
         }
       }
     }
-    return { "code": 1, "messeage": data }
+    return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
   } catch(e) {
     return { "code": 1, "messeage": e.toString() }
   }
@@ -264,7 +264,7 @@ class OneStCaptchaClient {
         }
       }
     }
-    return { "code": 1, "messeage": data }
+    return { "code": 1, "messeage": data["Message"] || JSON.stringify(data) }
   } catch (e) {
     return { "code": 1, "messeage": e.toString() }
   }

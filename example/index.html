@@ -29,6 +29,7 @@
         <button type="button" id="setFuncaptchaExample">setFuncaptchaExample</button><br>
 
         <label>ACTION:</label><br>
+        <button type="button" id="getBalance">getBalance</button><br>
         <button type="button" id="solveRecaptchaV2ProxyLess">solveRecaptchaV2ProxyLess</button><br>
         <button type="button" id="solveRecaptchaV2EnterpriseProxyLess">solveRecaptchaV2EnterpriseProxyLess</button><br>
         <button type="button" id="solveRecaptchaV3ProxyLess">solveRecaptchaV3ProxyLess</button><br>
@@ -41,7 +42,7 @@
     <label for="result">RESULT:</label><br>
     <a id="result" name="result"></a><br>
     <script>
-        let apiKey = "ee00fb4aae5e45279cb1d5fe55be865d";
+        let apiKey = "";
         let siteURL;
         let siteKey;
         let pageAction;
@@ -110,37 +111,46 @@
         }
 
         const handleAction = async (e) => {
-            getFormData();
-            const client = new OneStCaptchaClient(apiKey);
-            let result = {};
-            switch (e.target.id) {
-                case "solveRecaptchaV2ProxyLess":
-                    result = await client.solveRecaptchaV2ProxyLess(siteURL, siteKey);
-                    break;
-                case "solveRecaptchaV2EnterpriseProxyLess":
-                    result = await client.solveRecaptchaV2EnterpriseProxyLess(siteURL, siteKey);
-                    break;
-                case "solveRecaptchaV3ProxyLess":
-                    result = await client.solveRecaptchaV3ProxyLess(siteURL, siteKey, pageAction);
-                    break;
-                case "solveRecaptchaV3EnterpriseProxyLess":
-                    result = await client.solveRecaptchaV3EnterpriseProxyLess(siteURL, siteKey, pageAction);
-                    break;
-                case "imageToText":
-                    result = await client.imageToText("", "./example.png");
-                    break;
-                case "recaptchaClick":
-                    result = await client.recaptchaClick(siteURL, caption);
-                    break;
-                case "funcaptcha":
-                    result = await client.funCaptchaProxyLess(siteURL, siteKey);
-                    break;
-                default:
-                    result = { message: "Unknown action" }
-                    break;
+            try {
+                getFormData();
+                const client = new OneStCaptchaClient(apiKey);
+                let result = {};
+                switch (e.target.id) {
+                    case "getBalance":
+                        result = await client.getBalance();
+                        break;
+                    case "solveRecaptchaV2ProxyLess":
+                        result = await client.solveRecaptchaV2ProxyLess(siteURL, siteKey);
+                        break;
+                    case "solveRecaptchaV2EnterpriseProxyLess":
+                        result = await client.solveRecaptchaV2EnterpriseProxyLess(siteURL, siteKey);
+                        break;
+                    case "solveRecaptchaV3ProxyLess":
+                        result = await client.solveRecaptchaV3ProxyLess(siteURL, siteKey, pageAction);
+                        break;
+                    case "solveRecaptchaV3EnterpriseProxyLess":
+                        result = await client.solveRecaptchaV3EnterpriseProxyLess(siteURL, siteKey, pageAction);
+                        break;
+                    case "imageToText":
+                        result = await client.imageToText("", "./example.png");
+                        break;
+                    case "recaptchaClick":
+                        result = await client.recaptchaClick(siteURL, caption);
+                        break;
+                    case "funcaptcha":
+                        result = await client.funCaptchaProxyLess(siteURL, siteKey);
+                        break;
+                    default:
+                        result = { message: "Unknown action" }
+                        break;
+                }
+                isProcessing = false;
+                document.getElementById("result").text = JSON.stringify(result);
             }
-            isProcessing = false;
-            document.getElementById("result").text = JSON.stringify(result);
+            catch (error) {
+                isProcessing = false;
+                document.getElementById("result").text = JSON.stringify(error.message);
+            }
         }
 
         document.getElementById("setCapchaV2Example").addEventListener("click", setFormData);
@@ -149,6 +159,7 @@
         document.getElementById("setFuncaptchaExample").addEventListener("click", setFormData);
         document.getElementById("clear").addEventListener("click", setFormData);
 
+        document.getElementById("getBalance").addEventListener("click", handleAction);
         document.getElementById("solveRecaptchaV2ProxyLess").addEventListener("click", handleAction);
         document.getElementById("solveRecaptchaV2EnterpriseProxyLess").addEventListener("click", handleAction);
         document.getElementById("solveRecaptchaV3ProxyLess").addEventListener("click", handleAction);

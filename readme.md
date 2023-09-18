@@ -10,14 +10,14 @@ Solver recaptchaV2, recaptchaV3, hcaptcha, funcaptcha, imageToText, Zalo Captcha
 
 ```html
 <head>
-    <script src="{{URL_PATH}}/1stcaptcha.js"></script>
+    <script src="https://1stcaptcha-js.github.io/1stcaptcha-js/1stcaptcha.js"></script>
 </head>
 ```
 
 ## Manual install
 
 ```
-download github.com/1stcaptcha/1stcaptcha-js
+download github.com/1stcaptcha/1stcaptcha-js/1stcaptcha.js
 add library to script
 ```
 ```html
@@ -35,6 +35,15 @@ add library to script
   const apiKey = "YOUR_API_KEY";
   const client = new OneStCaptchaClient(apiKey);
 </script>
+```
+
+## solver getBalance:
+
+```node
+(async () => {
+  const result = await client.getBalance();
+  console.log(result);
+})();
 ```
 
 ## solver recaptcha v2:
