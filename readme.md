@@ -37,7 +37,7 @@ add library to script
 </script>
 ```
 
-## solver getBalance:
+## getBalance:
 
 ```node
 (async () => {
