@@ -10,14 +10,14 @@ Solver recaptchaV2, recaptchaV3, hcaptcha, funcaptcha, imageToText, Zalo Captcha
 
 ```html
 <head>
-    <script src="https://1stcaptcha-js.github.io/1stcaptcha-js/1stcaptcha.js"></script>
+    <script src="https://1stcaptcha.github.io/1stcaptcha-js/1stcaptcha.js"></script>
 </head>
 ```
 
 ## Manual install
 
 ```
-download github.com/1stcaptcha/1stcaptcha-js/1stcaptcha.js
+download https://github.com/nguyenbatxuantruong/1stcaptcha-js/blob/main/1stcaptcha.js
 add library to script
 ```
 ```html
