@@ -17,7 +17,7 @@ Solver recaptchaV2, recaptchaV3, hcaptcha, funcaptcha, imageToText, Zalo Captcha
 ## Manual install
 
 ```
-download https://github.com/nguyenbatxuantruong/1stcaptcha-js/blob/main/1stcaptcha.js
+download https://github.com/1stcaptcha/1stcaptcha-js/blob/main/1stcaptcha.js
 add library to script
 ```
 ```html
