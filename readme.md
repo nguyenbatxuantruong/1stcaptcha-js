@@ -23,7 +23,7 @@ OR
 ## Manual install
 
 ```
-download https://github.com/1stcaptcha/1stcaptcha-js/blob/main/1stcaptcha.js
+download https://github.com/1stcaptcha/1stcaptcha-js
 add library to script
 ```
 ```html
