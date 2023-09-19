@@ -13,6 +13,12 @@ Solver recaptchaV2, recaptchaV3, hcaptcha, funcaptcha, imageToText, Zalo Captcha
     <script src="https://1stcaptcha.github.io/1stcaptcha-js/1stcaptcha.js"></script>
 </head>
 ```
+OR
+```html
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/1stcaptcha/1stcaptcha-js/1stcaptcha.js"></script>
+</head>
+```
 
 ## Manual install
 
